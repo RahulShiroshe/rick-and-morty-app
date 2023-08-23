@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CharacterList from "./rick-and-morty-app/components/CharacterList";
+import CharacterDetail from "./rick-and-morty-app/components/CharacterDetail";
+import "./index.css";
 
-function App() {
+const AppCha = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+        <Route exact path="/" element={<CharacterList />} />
+        <Route path="/character/:characterId" element={<CharacterDetail />} />
+    </Routes>
+    </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default AppCha;
